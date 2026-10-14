@@ -11,7 +11,7 @@ const selection: { depart: Commune | null; arrivee: Commune | null } = {
   arrivee: null,
 };
 
-/** Spec : calcul-distance / « Calcul automatique » et « Format d'affichage ». */
+/** Spec : distance-calculation / "Automatic calculation" et "Display format". */
 function mettreAJour(): void {
   const { depart, arrivee } = selection;
   resultat.textContent =

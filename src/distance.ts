@@ -11,7 +11,7 @@ const enRadians = (degres: number): number => (degres * Math.PI) / 180;
 
 /**
  * Distance à vol d'oiseau (km) entre deux points, par la formule de haversine.
- * Spec : calcul-distance / « Distance orthodromique ».
+ * Spec : distance-calculation / "Great-circle distance".
  */
 export function haversine(a: LonLat, b: LonLat): number {
   const dLat = enRadians(b.lat - a.lat);
@@ -30,7 +30,7 @@ const formatDecimal = new Intl.NumberFormat("fr-FR", {
 
 /**
  * Formate une distance exprimée en km.
- * Spec : calcul-distance / « Format d'affichage ».
+ * Spec : distance-calculation / "Display format".
  */
 export function formaterDistance(km: number): string {
   if (km < 1) return `${formatEntier.format(km * 1000)} m`;

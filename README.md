@@ -23,9 +23,9 @@ npm run build    # vérification des types + build de production dans dist/
 
 | Capacité | Spécification | Code | Tests |
 | --- | --- | --- | --- |
-| Recherche de communes | [recherche-commune](openspec/specs/recherche-commune/spec.md) | `src/geoplateforme.ts` | `tests/geoplateforme.test.ts` |
-| Saisie et sélection d'une ville | [selection-ville](openspec/specs/selection-ville/spec.md) | `src/autocomplete.ts` | _(vérification manuelle)_ |
-| Calcul et affichage de la distance | [calcul-distance](openspec/specs/calcul-distance/spec.md) | `src/distance.ts`, `src/main.ts` | `tests/distance.test.ts` |
+| Recherche de communes | [city-search](openspec/specs/city-search/spec.md) | `src/geoplateforme.ts` | `tests/geoplateforme.test.ts` |
+| Saisie et sélection d'une ville | [city-selection](openspec/specs/city-selection/spec.md) | `src/autocomplete.ts` | _(vérification manuelle)_ |
+| Calcul et affichage de la distance | [distance-calculation](openspec/specs/distance-calculation/spec.md) | `src/distance.ts`, `src/main.ts` | `tests/distance.test.ts` |
 
 Les tests reprennent le nom des scénarios des spécifications (`Scenario: ...`).
 

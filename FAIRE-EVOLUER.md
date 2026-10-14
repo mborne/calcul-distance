@@ -12,9 +12,9 @@ en s'appuyant sur cette description.
 openspec/
 ├── config.yaml                 # contexte du projet (stack, conventions) et règles pour l'IA
 ├── specs/                      # SOURCE DE VÉRITÉ : ce que fait l'application aujourd'hui
-│   ├── recherche-commune/spec.md
-│   ├── selection-ville/spec.md
-│   └── calcul-distance/spec.md
+│   ├── city-search/spec.md
+│   ├── city-selection/spec.md
+│   └── distance-calculation/spec.md
 └── changes/                    # changements proposés, en cours ou archivés
     ├── <nom-du-changement>/    # un changement en cours
     │   ├── proposal.md         # POURQUOI et QUOI
@@ -29,6 +29,12 @@ Une **spécification** décrit un comportement observable sous forme d'exigences
 (`### Requirement:` avec SHALL / MUST) illustrées par des **scénarios** (`#### Scenario:` en
 WHEN / THEN). Chaque scénario est un cas de test potentiel : les tests de `tests/` en reprennent
 le nom.
+
+**Langue** : les specs sont rédigées **en anglais** (noms de capacités, exigences, scénarios),
+pour rester cohérentes avec les mots-clés SHALL / MUST / WHEN / THEN ; seuls les textes affichés
+par l'application, cités dans les scénarios, restent en français. La proposition, le design et
+les tâches sont rédigés en français. Cette convention est déclarée dans `openspec/config.yaml`,
+ce qui permet à l'assistant de l'appliquer automatiquement.
 
 ## Le cycle d'un changement
 
@@ -114,25 +120,25 @@ Le code, les tests et l'archivage sont commités ensemble dans la même PR.
 ## Exemple : modifier une exigence existante
 
 Supposons qu'on veuille afficher la distance en
-miles en plus des kilomètres. Le delta `openspec/changes/<nom>/specs/calcul-distance/spec.md`
+miles en plus des kilomètres. Le delta `openspec/changes/<nom>/specs/distance-calculation/spec.md`
 recopie l'exigence existante en entier et la modifie :
 
 ```markdown
 ## MODIFIED Requirements
 
-### Requirement: Format d'affichage
-La distance SHALL être affichée en français avec les noms des deux communes, en kilomètres
-(...) puis, entre parenthèses, en miles arrondis à l'unité ; ...
+### Requirement: Display format
+The distance SHALL be displayed in French with the names of both municipalities: in kilometres
+(...), followed in parentheses by the distance in miles rounded to the unit; ...
 
-#### Scenario: Grande distance
-- **WHEN** la distance calculée entre Paris et Marseille vaut 660,48 km
-- **THEN** le texte est « Paris → Marseille : 660 km (410 mi) à vol d'oiseau »
+#### Scenario: Long distance
+- **WHEN** the computed distance between Paris and Marseille is 660.48 km
+- **THEN** the text is "Paris → Marseille : 660 km (410 mi) à vol d'oiseau"
 
-(... autres scénarios conservés ...)
+(... other scenarios kept ...)
 ```
 
 Pour une nouvelle fonctionnalité indépendante (par exemple une carte), on crée plutôt une
-**nouvelle capacité** (`specs/carte/spec.md` avec une section `## Purpose` et des
+**nouvelle capacité** (`specs/map/spec.md` avec une section `## Purpose` et des
 `## ADDED Requirements`).
 
 ## Commandes utiles

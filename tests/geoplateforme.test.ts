@@ -22,9 +22,9 @@ const reponseMarseille = {
 
 const urlAppelee = (f: ReturnType<typeof fetchSimule>) => new URL(String(f.mock.calls[0][0]));
 
-// Spec : openspec/specs/recherche-commune/spec.md
-describe("recherche-commune", () => {
-  it("Scenario: Recherche d'une commune existante", async () => {
+// Spec : openspec/specs/city-search/spec.md
+describe("city-search", () => {
+  it("Scenario: Existing municipality", async () => {
     const f = fetchSimule(reponseMarseille);
     const communes = await rechercherCommunes("Marseil", { fetchFn: f });
 
@@ -38,34 +38,34 @@ describe("recherche-commune", () => {
     ]);
   });
 
-  it("Scenario: Aucun résultat", async () => {
+  it("Scenario: No result", async () => {
     expect(await rechercherCommunes("Xyzw", { fetchFn: fetchSimule({ status: "OK", results: [] }) })).toEqual([]);
     expect(await rechercherCommunes("Xyzw", { fetchFn: fetchSimule({ status: "OK" }) })).toEqual([]);
   });
 
-  it("Scenario: Texte trop court", async () => {
+  it("Scenario: Text too short", async () => {
     const f = fetchSimule(reponseMarseille);
     expect(await rechercherCommunes("Pa", { fetchFn: f })).toEqual([]);
     expect(f).not.toHaveBeenCalled();
   });
 
-  it("Scenario: Espaces ignorés", async () => {
+  it("Scenario: Whitespace ignored", async () => {
     const f = fetchSimule(reponseMarseille);
     await rechercherCommunes("   Lyon  ", { fetchFn: f });
     expect(urlAppelee(f).searchParams.get("text")).toBe("Lyon");
   });
 
-  it("Scenario: Limite par défaut", async () => {
+  it("Scenario: Default limit", async () => {
     const f = fetchSimule(reponseMarseille);
     await rechercherCommunes("Lyon", { fetchFn: f });
     expect(urlAppelee(f).searchParams.get("maximumResponses")).toBe("10");
   });
 
-  it("Scenario: Service indisponible", async () => {
+  it("Scenario: Service unavailable", async () => {
     await expect(rechercherCommunes("Lyon", { fetchFn: fetchSimule({}, 500) })).rejects.toThrow("500");
   });
 
-  it("Scenario: Saisie rapide (le signal d'annulation est transmis)", async () => {
+  it("Scenario: Fast typing (the abort signal is forwarded)", async () => {
     const f = fetchSimule(reponseMarseille);
     const controleur = new AbortController();
     await rechercherCommunes("Borde", { fetchFn: f, signal: controleur.signal });

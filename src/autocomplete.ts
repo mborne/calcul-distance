@@ -14,7 +14,7 @@ export interface OptionsCombobox {
 
 /**
  * Champ de saisie avec suggestions de communes (motif ARIA « combobox »).
- * Spec : selection-ville.
+ * Spec : city-selection.
  */
 export function creerCombobox({ input, liste, rechercher, onSelect, onErreur }: OptionsCombobox): void {
   let suggestions: Commune[] = [];

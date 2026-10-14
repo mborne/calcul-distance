@@ -15,9 +15,9 @@ On souhaite pouvoir connaître rapidement la distance entre deux villes françai
 
 ### New Capabilities
 
-- `recherche-commune` : recherche de communes françaises à partir d'un début de nom, via le service d'autocomplétion de la Géoplateforme (requête, résultats, erreurs).
-- `selection-ville` : champ de saisie avec liste de suggestions permettant de choisir une commune à la souris ou au clavier, de façon accessible.
-- `calcul-distance` : calcul de la distance orthodromique entre deux points et affichage du résultat à l'utilisateur.
+- `city-search` : recherche de communes françaises à partir d'un début de nom, via le service d'autocomplétion de la Géoplateforme (requête, résultats, erreurs).
+- `city-selection` : champ de saisie avec liste de suggestions permettant de choisir une commune à la souris ou au clavier, de façon accessible.
+- `distance-calculation` : calcul de la distance orthodromique entre deux points et affichage du résultat à l'utilisateur.
 
 ### Modified Capabilities
 

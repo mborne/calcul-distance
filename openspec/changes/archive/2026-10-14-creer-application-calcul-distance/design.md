@@ -19,9 +19,9 @@ Projet vide (voir proposal.md). Contraintes : site statique publié sur GitHub P
 
 - **Vite + TypeScript sans framework UI** : la page ne compte que deux champs et un résultat ; un framework (React, Vue) alourdirait l'exemple sans bénéfice. Vite fournit le serveur de dev et le build statique.
 - **Découpage en modules** (un par capacité, plus l'assemblage) :
-  - `src/geoplateforme.ts` → `recherche-commune` : `rechercherCommunes(texte, { max, signal, fetchFn })`. La fonction `fetch` est injectable pour les tests ; l'`AbortSignal` sert à annuler les requêtes obsolètes.
-  - `src/autocomplete.ts` → `selection-ville` : composant combobox branché sur un `<input>` et un `<ul>` existants dans `index.html` ; il reçoit une fonction de recherche et un callback `onSelect(commune | null)`.
-  - `src/distance.ts` → `calcul-distance` : `haversine(a, b)` et `formaterDistance(km)` (fonctions pures, `Intl.NumberFormat("fr-FR")`).
+  - `src/geoplateforme.ts` → `city-search` : `rechercherCommunes(texte, { max, signal, fetchFn })`. La fonction `fetch` est injectable pour les tests ; l'`AbortSignal` sert à annuler les requêtes obsolètes.
+  - `src/autocomplete.ts` → `city-selection` : composant combobox branché sur un `<input>` et un `<ul>` existants dans `index.html` ; il reçoit une fonction de recherche et un callback `onSelect(commune | null)`.
+  - `src/distance.ts` → `distance-calculation` : `haversine(a, b)` et `formaterDistance(km)` (fonctions pures, `Intl.NumberFormat("fr-FR")`).
   - `src/main.ts` : assemble les deux combobox et met à jour le résultat (`<output aria-live="polite">`).
 - **Paramètres du service** : `text`, `type=PositionOfInterest`, `poiType=commune`, `maximumResponses`. Les champs utilisés dans la réponse sont `names[0]`, `fulltext`, `zipcode`, `x` (longitude), `y` (latitude).
 - **Debounce de 250 ms** dans le composant plutôt que dans le module de recherche, pour garder ce dernier synchrone vis-à-vis de l'appelant et simple à tester.

@@ -37,7 +37,7 @@ export interface OptionsRecherche {
 
 /**
  * Recherche les communes correspondant au début de nom `texte`.
- * Spec : recherche-commune.
+ * Spec : city-search.
  */
 export async function rechercherCommunes(
   texte: string,

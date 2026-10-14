@@ -1,9 +1,10 @@
 schema: spec-driven
 
 context: |
-  Language: fr
-  All artifacts must be written in fr.
-  Keep OpenSpec structural headings and SHALL/MUST keywords in English.
+  Language: specs (specs/**/spec.md) are written in English, including
+  capability names and requirement/scenario titles. proposal.md, design.md
+  and tasks.md are written in French. User-facing strings quoted in scenarios
+  stay in French, as displayed by the application.
 
   Projet : application web statique de calcul de distance entre deux villes,
   publiée sur GitHub Pages (https://mborne.github.io/calcul-distance/).
@@ -14,6 +15,8 @@ context: |
   dans des modules purs testables sans navigateur (appels réseau injectables).
 
 rules:
+  specs:
+    - Write specs in English (capability paths, requirements, scenarios); quote French UI strings verbatim.
   tasks:
     - Chaque groupe de tâches inclut ses tests unitaires (npm test) et la mise à jour du README si besoin.
     - La dernière tâche vérifie que npm test et npm run build passent.
