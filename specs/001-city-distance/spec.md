@@ -30,7 +30,8 @@ immediately read the straight-line distance between them.
 3. **Given** suggestions are displayed, **When** the visitor clicks "Toulouse, 31000", **Then** the
    field shows "Toulouse, 31000" and the list closes.
 4. **Given** Paris is selected as departure, **When** the visitor selects Marseille as arrival,
-   **Then** the page shows "Paris → Marseille : 660 km à vol d'oiseau" without any further action.
+   **Then** the page shows "Paris → Marseille : 661 km à vol d'oiseau" (about 660 km, depending on
+   the coordinates returned by the search) without any further action.
 5. **Given** only the departure city is selected, **When** the visitor looks at the result area,
    **Then** no distance is shown.
 

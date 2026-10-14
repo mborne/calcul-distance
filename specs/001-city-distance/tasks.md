@@ -25,9 +25,9 @@ description: "Task list for feature 001-city-distance"
 
 **Purpose**: initialisation du projet
 
-- [ ] T001 Créer `package.json` (scripts `dev`, `build`, `preview`, `test` ; devDependencies `typescript`, `vite`, `vitest`) puis `npm install`
-- [ ] T002 [P] Créer `tsconfig.json` (strict, ES2022, DOM, `noEmit`, inclut `src`, `tests`, `vite.config.ts`)
-- [ ] T003 [P] Créer `vite.config.ts` avec `base: "./"` (principe II)
+- [x] T001 Créer `package.json` (scripts `dev`, `build`, `preview`, `test` ; devDependencies `typescript`, `vite`, `vitest`) puis `npm install`
+- [x] T002 [P] Créer `tsconfig.json` (strict, ES2022, DOM, `noEmit`, inclut `src`, `tests`, `vite.config.ts`)
+- [x] T003 [P] Créer `vite.config.ts` avec `base: "./"` (principe II)
 
 ---
 
@@ -35,9 +35,9 @@ description: "Task list for feature 001-city-distance"
 
 **Purpose**: page et types partagés par toutes les stories
 
-- [ ] T004 Créer `index.html` conforme à [contracts/ui.md](contracts/ui.md) : `#depart`, `#arrivee`, listes `#…-suggestions`, `#resultat` (`aria-live="polite"`), `#erreur` (`role="alert"`), mention de la Géoplateforme
-- [ ] T005 [P] Créer `src/style.css` (mise en page, liste de suggestions, focus visible, mode sombre)
-- [ ] T006 [P] Définir `LonLat` dans `src/distance.ts` et `Commune` dans `src/geoplateforme.ts` selon [data-model.md](data-model.md) (`nom` ← `names[0]` à défaut `fulltext`, `libelle` ← `fulltext`, `codePostal` ← `zipcode` optionnel, `lon` ← `x`, `lat` ← `y`)
+- [x] T004 Créer `index.html` conforme à [contracts/ui.md](contracts/ui.md) : `#depart`, `#arrivee`, listes `#…-suggestions`, `#resultat` (`aria-live="polite"`), `#erreur` (`role="alert"`), mention de la Géoplateforme
+- [x] T005 [P] Créer `src/style.css` (mise en page, liste de suggestions, focus visible, mode sombre)
+- [x] T006 [P] Définir `LonLat` dans `src/distance.ts` et `Commune` dans `src/geoplateforme.ts` selon [data-model.md](data-model.md) (`nom` ← `names[0]` à défaut `fulltext`, `libelle` ← `fulltext`, `codePostal` ← `zipcode` optionnel, `lon` ← `x`, `lat` ← `y`)
 
 **Checkpoint**: `npm run build` passe, la page s'affiche avec `npm run dev`
 
@@ -51,16 +51,16 @@ description: "Task list for feature 001-city-distance"
 
 ### Tests for User Story 1
 
-- [ ] T007 [P] [US1] Tests de `haversine` dans `tests/distance.test.ts` : points identiques = 0, Paris (2.3522, 48.8566)–Marseille (5.3698, 43.2965) à 1 km de 660, symétrie (FR-006, SC-003)
-- [ ] T008 [P] [US1] Tests de `formaterDistance` dans `tests/distance.test.ts` : « 432 m », « 7,3 km », « 660 km », « 1 234 km » (FR-008)
-- [ ] T009 [P] [US1] Tests de `rechercherCommunes` dans `tests/geoplateforme.test.ts` avec `fetch` simulé : paramètres `text`, `type=PositionOfInterest`, `poiType=commune`, `maximumResponses=10`, mapping vers `Commune`, réponse vide, texte < 3 caractères sans requête, espaces retirés (FR-002, FR-003)
+- [x] T007 [P] [US1] Tests de `haversine` dans `tests/distance.test.ts` : points identiques = 0, Paris (2.3522, 48.8566)–Marseille (5.3698, 43.2965) à 1 km de 660, symétrie (FR-006, SC-003)
+- [x] T008 [P] [US1] Tests de `formaterDistance` dans `tests/distance.test.ts` : « 432 m », « 7,3 km », « 660 km », « 1 234 km » (FR-008)
+- [x] T009 [P] [US1] Tests de `rechercherCommunes` dans `tests/geoplateforme.test.ts` avec `fetch` simulé : paramètres `text`, `type=PositionOfInterest`, `poiType=commune`, `maximumResponses=10`, mapping vers `Commune`, réponse vide, texte < 3 caractères sans requête, espaces retirés (FR-002, FR-003)
 
 ### Implementation for User Story 1
 
-- [ ] T010 [P] [US1] Implémenter `haversine` (rayon 6 371 km) et `formaterDistance` (`Intl.NumberFormat("fr-FR")`) dans `src/distance.ts`
-- [ ] T011 [P] [US1] Implémenter `rechercherCommunes(texte, { max, signal, fetchFn })` dans `src/geoplateforme.ts` selon [contracts/geoplateforme-completion.md](contracts/geoplateforme-completion.md)
-- [ ] T012 [US1] Implémenter `creerCombobox` dans `src/autocomplete.ts` : debounce 250 ms, affichage des suggestions (`libelle`), sélection au clic (`mousedown`), fermeture au blur, callback `onSelect`
-- [ ] T013 [US1] Assembler la page dans `src/main.ts` : deux combobox, résultat « {départ} → {arrivée} : {distance} à vol d'oiseau » dès que les deux villes sont choisies, vide sinon (FR-001, FR-007)
+- [x] T010 [P] [US1] Implémenter `haversine` (rayon 6 371 km) et `formaterDistance` (`Intl.NumberFormat("fr-FR")`) dans `src/distance.ts`
+- [x] T011 [P] [US1] Implémenter `rechercherCommunes(texte, { max, signal, fetchFn })` dans `src/geoplateforme.ts` selon [contracts/geoplateforme-completion.md](contracts/geoplateforme-completion.md)
+- [x] T012 [US1] Implémenter `creerCombobox` dans `src/autocomplete.ts` : debounce 250 ms, affichage des suggestions (`libelle`), sélection au clic (`mousedown`), fermeture au blur, callback `onSelect`
+- [x] T013 [US1] Assembler la page dans `src/main.ts` : deux combobox, résultat « {départ} → {arrivée} : {distance} à vol d'oiseau » dès que les deux villes sont choisies, vide sinon (FR-001, FR-007)
 
 **Checkpoint**: `npm test` passe ; quickstart scénarios 1 à 4 OK
 
@@ -74,8 +74,8 @@ description: "Task list for feature 001-city-distance"
 
 ### Implementation for User Story 2
 
-- [ ] T014 [US2] Ajouter la navigation clavier dans `src/autocomplete.ts` : ↓/↑ en boucle, Entrée, Échap (FR-004)
-- [ ] T015 [US2] Maintenir `aria-expanded`, `aria-activedescendant`, `role="option"` et `aria-selected` dans `src/autocomplete.ts` ; option active visible (`scrollIntoView`) (FR-005)
+- [x] T014 [US2] Ajouter la navigation clavier dans `src/autocomplete.ts` : ↓/↑ en boucle, Entrée, Échap (FR-004)
+- [x] T015 [US2] Maintenir `aria-expanded`, `aria-activedescendant`, `role="option"` et `aria-selected` dans `src/autocomplete.ts` ; option active visible (`scrollIntoView`) (FR-005)
 
 **Checkpoint**: quickstart scénarios 5 à 7 OK
 
@@ -89,13 +89,13 @@ description: "Task list for feature 001-city-distance"
 
 ### Tests for User Story 3
 
-- [ ] T016 [P] [US3] Tests dans `tests/geoplateforme.test.ts` : HTTP 500 → erreur contenant « 500 » ; le `signal` est transmis à `fetch` (FR-010, FR-011)
+- [x] T016 [P] [US3] Tests dans `tests/geoplateforme.test.ts` : HTTP 500 → erreur contenant « 500 » ; le `signal` est transmis à `fetch` (FR-010, FR-011)
 
 ### Implementation for User Story 3
 
-- [ ] T017 [US3] Dans `src/geoplateforme.ts`, lever `Erreur du service d'autocomplétion (HTTP {status})` si la réponse n'est pas OK
-- [ ] T018 [US3] Dans `src/autocomplete.ts` : `onSelect(null)` à chaque modification du texte (FR-009) ; annuler la recherche précédente par `AbortController` et ignorer les réponses annulées (FR-010) ; callback `onErreur` (FR-011)
-- [ ] T019 [US3] Dans `src/main.ts`, afficher/effacer le message d'erreur dans `#erreur`
+- [x] T017 [US3] Dans `src/geoplateforme.ts`, lever `Erreur du service d'autocomplétion (HTTP {status})` si la réponse n'est pas OK
+- [x] T018 [US3] Dans `src/autocomplete.ts` : `onSelect(null)` à chaque modification du texte (FR-009) ; annuler la recherche précédente par `AbortController` et ignorer les réponses annulées (FR-010) ; callback `onErreur` (FR-011)
+- [x] T019 [US3] Dans `src/main.ts`, afficher/effacer le message d'erreur dans `#erreur`
 
 **Checkpoint**: toutes les stories fonctionnent ; quickstart scénarios 8 à 10 OK
 
@@ -103,9 +103,9 @@ description: "Task list for feature 001-city-distance"
 
 ## Phase 6: Polish & Cross-Cutting Concerns
 
-- [ ] T020 [P] Rédiger `README.md` (présentation, commandes, lien vers `specs/` et `CODING.md`)
-- [ ] T021 [P] Rédiger `CODING.md` : comment faire évoluer le projet avec Spec Kit, comparaison avec OpenSpec
-- [ ] T022 Vérifier `npm test`, `npm run build` et l'intégralité de [quickstart.md](quickstart.md)
+- [x] T020 [P] Rédiger `README.md` (présentation, commandes, lien vers `specs/` et `CODING.md`)
+- [x] T021 [P] Rédiger `CODING.md` : comment faire évoluer le projet avec Spec Kit, comparaison avec OpenSpec
+- [x] T022 Vérifier `npm test`, `npm run build` et l'intégralité de [quickstart.md](quickstart.md)
 
 ---
 
