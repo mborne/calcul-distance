@@ -1,0 +1,41 @@
+schema: spec-driven
+
+context: |
+  Language: fr
+  All artifacts must be written in fr.
+  Keep OpenSpec structural headings and SHALL/MUST keywords in English.
+
+  Projet : application web statique de calcul de distance entre deux villes,
+  publiée sur GitHub Pages (https://mborne.github.io/calcul-distance/).
+  Stack : Vite, TypeScript (strict), Vitest ; aucun framework UI, aucun backend.
+  Données : services de la Géoplateforme IGN (https://data.geopf.fr), appelés
+  directement depuis le navigateur, sans clé d'API.
+  Conventions : code, commentaires et interface en français ; logique métier
+  dans des modules purs testables sans navigateur (appels réseau injectables).
+
+rules:
+  tasks:
+    - Chaque groupe de tâches inclut ses tests unitaires (npm test) et la mise à jour du README si besoin.
+    - La dernière tâche vérifie que npm test et npm run build passent.
+
+# Per-artifact rules (optional)
+# Add custom rules for specific artifacts.
+# Example:
+#   rules:
+#     proposal:
+#       - Keep proposals under 500 words
+#       - Always state what is out of scope
+#     tasks:
+#       - Break tasks into chunks of max 2 hours
+
+# Per-operation guidance (optional)
+# Add advisory guidance for how apply and archive work should be conducted.
+# This is separate from artifact rules above.
+# Example:
+#   operations:
+#     apply:
+#       guidance:
+#         - Keep test summaries concise
+#     archive:
+#       guidance:
+#         - Summarize the archive outcome before finishing
