@@ -1,41 +1,26 @@
 # calcul-distance
 
-Calcule la distance à vol d'oiseau (orthodromique) entre deux villes françaises.
+> Prompt : Génère une application web de calcul de distance entre deux villes. Travaille avec vite / TypeScript. Utilise le service d'autocomplétion de la géoplateforme saisir le nom de ville
 
-Les communes sont géocodées avec le [service de géocodage de la Géoplateforme](https://geoservices.ign.fr/documentation/services/services-geoplateforme/geocodage) (IGN), puis la distance est calculée avec la formule de haversine (sphère de rayon moyen 6371,0088 km).
+Application web (Vite + TypeScript) qui calcule la distance à vol d'oiseau entre deux villes.
 
-Aucune dépendance hors bibliothèque standard Python (≥ 3.10).
+La saisie des noms de ville s'appuie sur le
+[service d'autocomplétion de la Géoplateforme](https://geoservices.ign.fr/documentation/services/services-geoplateforme/autocompletion)
+(`https://data.geopf.fr/geocodage/completion/`, filtré sur les communes).
+La distance est calculée avec la formule de haversine.
 
 ## Utilisation
 
 ```bash
-uv run calcul-distance Paris Lyon
-# Départ  : Paris (75, Paris, Île-de-France)
-# Arrivée : Lyon (69, Rhône, Auvergne-Rhône-Alpes)
-# Distance à vol d'oiseau : 392.5 km
-
-uv run calcul-distance "Saint-Mandé" Marseille --json
+npm install
+npm run dev      # serveur de développement (http://localhost:5173)
+npm test         # tests unitaires (vitest)
+npm run build    # vérification des types + build de production dans dist/
 ```
 
-Depuis Python :
+## Structure
 
-```python
-from calcul_distance import geocoder, haversine
-
-a, b = geocoder("Brest"), geocoder("Strasbourg")
-print(haversine(a.lon, a.lat, b.lon, b.lat))
-```
-
-## Tests
-
-```bash
-uv run pytest
-```
-
-Les tests n'appellent pas le service de géocodage (réponses simulées).
-
-## Limites
-
-- Distance à vol d'oiseau, pas d'itinéraire routier.
-- Modèle sphérique : écart de l'ordre de 0,5 % au plus par rapport à un calcul ellipsoïdal.
-- En cas d'homonymie, la commune la mieux classée par le géocodeur est retenue (le contexte affiché permet de vérifier).
+- `src/geoplateforme.ts` : appel au service d'autocomplétion
+- `src/autocomplete.ts` : liste de suggestions (clavier, souris, accessibilité)
+- `src/distance.ts` : formule de haversine
+- `src/main.ts` : assemblage de la page
