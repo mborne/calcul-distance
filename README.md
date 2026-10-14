@@ -8,7 +8,7 @@ Démo : https://mborne.github.io/calcul-distance/
 
 > Ce projet est développé **à partir de spécifications** avec [OpenSpec](https://github.com/Fission-AI/OpenSpec) :
 > le comportement attendu est décrit dans [`openspec/specs/`](openspec/specs/) avant d'écrire le code.
-> Pour le faire évoluer, voir [FAIRE-EVOLUER.md](FAIRE-EVOLUER.md).
+> Pour le faire évoluer, voir [CODING.md](CODING.md).
 
 ## Utilisation
 
