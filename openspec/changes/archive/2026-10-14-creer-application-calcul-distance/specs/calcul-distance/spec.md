@@ -36,7 +36,7 @@ Dès que les deux champs ont chacun une commune retenue, le système SHALL affic
 La distance SHALL être affichée en français avec les noms des deux communes, en kilomètres arrondis à l'unité, ou à une décimale en dessous de 10 km, et en mètres en dessous de 1 km ; le résultat est annoncé aux lecteurs d'écran.
 
 #### Scenario: Grande distance
-- **WHEN** la distance entre Paris et Marseille est affichée
+- **WHEN** la distance calculée entre Paris et Marseille vaut 660,48 km
 - **THEN** le texte est « Paris → Marseille : 660 km à vol d'oiseau »
 
 #### Scenario: Petite distance
