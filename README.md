@@ -9,6 +9,8 @@ La saisie des noms de ville s'appuie sur le
 (`https://data.geopf.fr/geocodage/completion/`, filtré sur les communes).
 La distance est calculée avec la formule de haversine.
 
+Démo : https://mborne.github.io/calcul-distance/
+
 ## Utilisation
 
 ```bash
@@ -24,3 +26,9 @@ npm run build    # vérification des types + build de production dans dist/
 - `src/autocomplete.ts` : liste de suggestions (clavier, souris, accessibilité)
 - `src/distance.ts` : formule de haversine
 - `src/main.ts` : assemblage de la page
+
+## Déploiement
+
+Le workflow `.github/workflows/pages.yml` teste et construit l'application à chaque PR,
+et la publie sur GitHub Pages à chaque push sur `main` :
+https://mborne.github.io/calcul-distance/
