@@ -8,7 +8,9 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   padding: 3rem 1rem;
+  line-height: 1.5;
 }
 
 main {
@@ -23,6 +25,15 @@ main {
 h1 {
   margin-top: 0;
   font-size: 1.5rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+p {
+  margin: 0;
 }
 
 .champ {
@@ -88,4 +99,67 @@ footer {
   margin-top: 1.5rem;
   font-size: 0.8rem;
   color: #666;
+  border-top: 1px solid #e2e5ea;
+  padding-top: 1rem;
+}
+
+footer p + p {
+  margin-top: 0.75rem;
+}
+
+a {
+  color: #000091;
+}
+
+a:hover {
+  text-decoration-thickness: 0.12em;
+}
+
+.footer-links {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.page-legale main {
+  max-width: 48rem;
+}
+
+.page-nav {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.legal-intro {
+  margin-bottom: 1.5rem;
+}
+
+.legal-sections {
+  display: grid;
+  gap: 1rem;
+}
+
+.legal-sections section {
+  padding: 1rem;
+  background: #f8f9fb;
+  border: 1px solid #e2e5ea;
+  border-radius: 0.5rem;
+}
+
+.legal-sections section > * + * {
+  margin-top: 0.75rem;
+}
+
+.legal-sections ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 1.5rem 0.75rem;
+  }
+
+  main {
+    padding: 1.25rem;
+  }
 }
