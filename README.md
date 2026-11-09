@@ -32,3 +32,12 @@ npm run build    # vérification des types + build de production dans dist/
 Le workflow `.github/workflows/pages.yml` teste et construit l'application à chaque PR,
 et la publie sur GitHub Pages à chaque push sur `main` :
 https://mborne.github.io/calcul-distance/
+
+## Docker
+
+```bash
+docker compose up -d --build   # http://localhost:8080
+```
+
+L'image est construite en deux étapes : tests et build avec Node 24, puis le contenu de `dist/` est servi par nginx.
+Pour changer le port exposé : `CALCUL_DISTANCE_PORT=9000 docker compose up -d`.
